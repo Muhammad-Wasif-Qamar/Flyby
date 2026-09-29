@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AUREVIA — Private Aviation, Perfected</title>
+  <meta name="description" content="Scroll to fly through the world of AUREVIA — private jet charter, sales, and management. One continuous cinematic take." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1628'/%3E%3Cpath d='M16 5 L25 27 H21 L16 14 L11 27 H7 Z' fill='%23C8A55C'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root, .sw-root {
+      --sw-bg: #0A1628;
+      --sw-ink: #F2ECDF;
+      --sw-ink-soft: #93A1B4;
+      --sw-accent: #C8A55C;
+      --sw-font-display: "Cormorant Garamond", "Didot", "Palatino", Georgia, serif;
+      --sw-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    html { background: var(--sw-bg); }
+    /* dark-theme chrome: the engine's default nav pill assumes a light page */
+    .sw-nav { background: color-mix(in srgb, #0A1628 62%, transparent); border-color: color-mix(in srgb, #C8A55C 22%, transparent); }
+    .sw-nav__item { color: #B9C6D6; }
+    .sw-nav__item:hover { color: var(--sw-ink); }
+    .sw-nav__item.is-active { color: #0A1628; }
+    .sw-route__label { color: #0A1628; background: color-mix(in srgb, #F2ECDF 92%, transparent); }
+    /* keep the copy box strictly inside the viewport on phones */
+    @media (max-width: 860px) {
+      .sw-copy { width: auto !important; max-width: calc(100vw - 2 * clamp(18px, 5vw, 64px)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'AUREVIA', href: '#top' },
+      hint: 'scroll to board',
+      diveScroll: 1.3,
+      crossfade: 0.08,
+      sections: [
+        {
+          id: 'cabin', label: 'The Cabin',
+          still: 'assets/stills/01-cabin.webp',
+          clip: 'assets/vid/leg1.mp4',
+          accent: '#C8A55C',
+          scroll: 1.7, linger: 0.45,
+          eyebrow: 'Charter · Sales · Management',
+          title: 'Departure, perfected.',
+          body: 'A cabin shaped around your calendar — quiet zones, a proper bed, and crew who remember how you take your coffee. Wheels up ninety minutes after you say so.',
+          tags: ['90-minute wheels-up', 'Dedicated cabin crew'],
+        },
+        {
+          id: 'deck', label: 'Flight Deck',
+          still: 'assets/stills/02-deck.webp',
+          clip: 'assets/vid/leg2.mp4',
+          accent: '#9FB3C8',
+          linger: 0.35,
+          eyebrow: 'The Crew',
+          title: 'Two captains. Zero compromises.',
+          body: 'Every flight is crewed by two type-rated captains with thousands of hours on your exact airframe — the same training pipeline as the major airlines, none of the queue.',
+          tags: ['Type-rated crews', 'Independently audited'],
+        },
+        {
+          id: 'ramp', label: 'The Ramp',
+          still: 'assets/stills/03-ramp.webp',
+          clip: 'assets/vid/leg3.mp4',
+          accent: '#D8C49A',
+          linger: 0.3,
+          eyebrow: 'The FBO',
+          title: 'Curb to cabin in four minutes.',
+          body: 'Skip the terminal entirely. Your car meets the wing, your bags move themselves, and the door closes when you do.',
+          tags: ['Private terminal', 'No queues'],
+        },
+        {
+          id: 'sky', label: 'Above the Clouds',
+          still: 'assets/stills/04-sky.webp',
+          clip: 'assets/vid/leg4.mp4',
+          accent: '#E3C77F',
+          scroll: 1.8, linger: 0.55,
+          eyebrow: 'Ownership & Charter',
+          title: 'Own the sky. Or borrow it.',
+          body: 'Above the weather, above the wait — charter by the trip, or acquire your own aircraft with Aurevia managing every line item: crew, maintenance, hangar, and the logbook.',
+          tags: ['Charter', 'Acquisition', 'Management'],
+          cta: { primary: { label: 'Request a quote', href: 'mailto:flights@aurevia.example' },
+                 secondary: { label: 'Explore the fleet', href: '#fleet' } },
+        },
+      ],
+      // Architecture A — one continuous take: no connector clips; legs chain via
+      // actual-frame handoffs and a hairline crossfade at each seam.
+      connectors: [],
+    });
+  </script>
+</body>
+</html>
